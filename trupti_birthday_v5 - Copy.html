@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Letter for Trupti 💌</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,700&family=Caveat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --pink: #ff6b9d;
+    --light-pink: #ffb3cc;
+    --peach: #ffcba4;
+    --lavender: #c9b8ff;
+    --mint: #b8f0d8;
+    --yellow: #ffe066;
+    --white: #ffffff;
+    --text: #3d2535;
+    --muted: #b09aa8;
+  }
+
+  body {
+    min-height: 100vh;
+    font-family: 'Nunito', sans-serif;
+    color: var(--text);
+    overflow-x: hidden;
+    background: #1a0a14;
+  }
+
+  /* ══════════════════════════════
+     LANDING — ROMANTIC SCREEN
+  ══════════════════════════════ */
+  #landing-screen {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 24px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    background: radial-gradient(ellipse at 50% 0%, #2a0018 0%, #10000a 55%, #05000a 100%);
+    transition: opacity 0.5s, transform 0.5s;
+  }
+
+  /* Floating stars */
+  .star-field { position: fixed; inset: 0; pointer-events: none; z-index: 0; }
+  .star {
+    position: absolute; border-radius: 50%; background: #fff;
+    animation: starTwinkle ease-in-out infinite alternate;
+  }
+  @keyframes starTwinkle {
+    0% { opacity: 0.05; transform: scale(1); }
+    100% { opacity: 0.65; transform: scale(1.5); }
+  }
+
+  /* Floating rose petals */
+  .petal {
+    position: fixed; pointer-events: none; z-index: 0;
+    animation: petalFloat linear infinite;
+  }
+  @keyframes petalFloat {
+    0%   { transform: translateY(-40px) rotate(0deg) translateX(0); opacity: 0.6; }
+    50%  { transform: translateY(50vh)  rotate(180deg) translateX(30px); opacity: 0.4; }
+    100% { transform: translateY(110vh) rotate(360deg) translateX(-10px); opacity: 0; }
+  }
+
+  /* Glow orbs */
+  .glow-orb {
+    position: fixed; border-radius: 50%; pointer-events: none;
+    filter: blur(80px); z-index: 0;
+    animation: orbPulse ease-in-out infinite alternate;
+  }
+  @keyframes orbPulse {
+    0%   { transform: scale(1) translate(0,0); opacity: 0.6; }
+    100% { transform: scale(1.2) translate(10px,20px); opacity: 1; }
+  }
+
+  .landing-content { position: relative; z-index: 1; width: 100%; }
+
+  /* Moon / romantic top icon */
+  .landing-icon {
+    font-size: 52px; display: block; margin-bottom: 16px;
+    animation: iconFloat 4s ease-in-out infinite alternate;
+    filter: drop-shadow(0 0 20px rgba(255,107,157,0.6));
+  }
+  @keyframes iconFloat {
+    0%   { transform: translateY(0) rotate(-6deg); }
+    100% { transform: translateY(-12px) rotate(6deg); }
+  }
+
+  .landing-tag {
+    font-size: 10px; font-weight: 700; letter-spacing: 4px;
+    text-transform: uppercase;
+    color: rgba(255,180,210,0.55);
+    margin-bottom: 14px;
+  }
+
+  /* Decorative line */
+  .deco-line {
+    display: flex; align-items: center; gap: 10px;
+    max-width: 220px; margin: 0 auto 18px;
+  }
+  .deco-line-bar {
+    flex: 1; height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,107,157,0.35), transparent);
+  }
+  .deco-line span { font-size: 12px; }
+
+  .landing-for {
+    font-family: 'Caveat', cursive;
+    font-size: clamp(18px, 5vw, 24px);
+    font-weight: 500;
+    color: rgba(255,210,230,0.65);
+    margin-bottom: 4px;
+    letter-spacing: 1px;
+    display: block;
+  }
+
+  .landing-name {
+    font-family: 'Caveat', cursive;
+    font-size: clamp(52px, 13vw, 78px);
+    font-weight: 700;
+    background: linear-gradient(135deg, #ff6b9d 0%, #ffb8cc 40%, #e8a0ff 70%, #ff6b9d 100%);
+    background-size: 200% 200%;
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1.15; padding-bottom: 8px; display: block;
+    animation: nameShimmer 4s ease infinite;
+    filter: drop-shadow(0 0 30px rgba(255,107,157,0.25));
+    margin-bottom: 6px;
+  }
+  @keyframes nameShimmer {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  .landing-subtitle {
+    font-family: 'Caveat', cursive;
+    font-size: clamp(16px, 4vw, 20px);
+    font-weight: 500;
+    color: rgba(255,200,220,0.5);
+    margin-bottom: 36px;
+    font-style: italic;
+    letter-spacing: 0.5px;
+  }
+
+  /* ── OPEN BUTTON ── */
+  .open-btn-wrap { margin-bottom: 20px; }
+
+  .open-btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 16px 36px;
+    background: linear-gradient(135deg, #c0365a, #8b1a6b);
+    border: none; border-radius: 50px; cursor: pointer;
+    font-family: 'Nunito', sans-serif;
+    font-size: 16px; font-weight: 800; color: #ffe0ec;
+    letter-spacing: 0.3px;
+    box-shadow: 0 0 40px rgba(192,54,90,0.5), 0 8px 24px rgba(0,0,0,0.4);
+    transition: transform 0.2s, box-shadow 0.2s;
+    animation: btnGlow 2.5s ease-in-out infinite alternate;
+    position: relative; overflow: hidden;
+  }
+  .open-btn::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.12), transparent);
+    border-radius: 50px;
+  }
+  @keyframes btnGlow {
+    0%   { box-shadow: 0 0 30px rgba(192,54,90,0.45), 0 8px 24px rgba(0,0,0,0.4); }
+    100% { box-shadow: 0 0 60px rgba(220,80,120,0.7), 0 8px 32px rgba(0,0,0,0.4); }
+  }
+  .open-btn:hover { transform: translateY(-3px) scale(1.03); }
+  .open-btn:active { transform: scale(0.97); }
+
+  .btn-icon { font-size: 20px; }
+
+  .tap-hint {
+    font-size: 12px; font-weight: 600;
+    color: rgba(255,160,200,0.35);
+    letter-spacing: 1px;
+    animation: hintPulse 2.5s ease-in-out infinite alternate;
+  }
+  @keyframes hintPulse {
+    0% { opacity: 0.4; } 100% { opacity: 0.85; }
+  }
+
+  /* bottom quote */
+  .landing-quote {
+    position: absolute; bottom: 22px; left: 0; right: 0;
+    font-family: 'Caveat', cursive;
+    font-size: 14px; font-weight: 500;
+    color: rgba(255,150,190,0.3);
+    text-align: center;
+    letter-spacing: 0.5px;
+    font-style: italic;
+  }
+
+  /* ══════════════════════════════
+     MODALS
+  ══════════════════════════════ */
+  .modal-overlay {
+    display: none; position: fixed; inset: 0; z-index: 50;
+    background: rgba(20,5,15,0.6);
+    backdrop-filter: blur(10px);
+    align-items: center; justify-content: center; padding: 24px;
+  }
+
+  .modal-box {
+    background: var(--white); border-radius: 28px;
+    padding: 32px 28px; width: 100%; max-width: 320px;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(255,107,157,0.25);
+    animation: modalPop 0.4s cubic-bezier(0.22,1.5,0.5,1);
+  }
+  @keyframes modalPop {
+    0% { transform: scale(0.7); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+
+  .modal-emoji { font-size: 52px; display: block; margin-bottom: 14px; }
+  .modal-title { font-size: 22px; font-weight: 900; color: var(--text); margin-bottom: 6px; }
+  .modal-sub { font-size: 13px; color: var(--muted); font-weight: 600; margin-bottom: 22px; }
+
+  .btn-row { display: flex; gap: 12px; justify-content: center; }
+
+  .btn-yes {
+    flex: 1; padding: 14px;
+    background: linear-gradient(135deg, #ff6b9d, #c9b8ff);
+    border: none; border-radius: 16px; color: white;
+    font-family: 'Nunito', sans-serif; font-size: 16px; font-weight: 800;
+    cursor: pointer; box-shadow: 0 4px 16px rgba(255,107,157,0.3);
+    transition: transform 0.15s;
+  }
+  .btn-yes:hover { transform: translateY(-2px); }
+  .btn-yes:active { transform: scale(0.96); }
+
+  .btn-no {
+    flex: 1; padding: 14px;
+    background: #fff0f5; border: 2px solid #ffd6e7;
+    border-radius: 16px; color: var(--pink);
+    font-family: 'Nunito', sans-serif; font-size: 16px; font-weight: 800;
+    cursor: pointer; transition: background 0.15s;
+  }
+  .btn-no:hover { background: #ffe0ec; }
+  .btn-no:active { transform: scale(0.96); }
+
+  .no-msg {
+    display: none; background: #fff5f8; border: 2px solid #ffd6e7;
+    border-radius: 14px; padding: 12px 16px; margin-top: 14px;
+    font-size: 13px; font-weight: 700; color: var(--pink);
+    animation: modalPop 0.3s cubic-bezier(0.22,1.5,0.5,1);
+  }
+
+  .love-input {
+    width: 100%; background: #fff5f8; border: 2px solid #ffd6e7;
+    border-radius: 14px; padding: 14px 16px;
+    font-family: 'Nunito', sans-serif; font-size: 15px; font-weight: 700;
+    color: var(--text); outline: none; text-align: center;
+    transition: border-color 0.2s; margin-bottom: 10px;
+  }
+  .love-input:focus { border-color: var(--pink); }
+  .love-input::placeholder { color: #d4b0be; font-weight: 600; }
+
+  .love-hint {
+    font-size: 12px; color: var(--muted); font-weight: 600;
+    margin-bottom: 18px; min-height: 16px;
+  }
+  .love-hint.err { color: #ff4d7a; }
+
+  .btn-continue {
+    width: 100%; padding: 14px;
+    background: linear-gradient(135deg, #ff6b9d, #c9b8ff);
+    border: none; border-radius: 16px; color: white;
+    font-family: 'Nunito', sans-serif; font-size: 16px; font-weight: 800;
+    cursor: pointer; box-shadow: 0 4px 16px rgba(255,107,157,0.3);
+    transition: transform 0.15s;
+  }
+  .btn-continue:hover { transform: translateY(-2px); }
+  .btn-continue:active { transform: scale(0.96); }
+
+  /* ══════════════════════════════
+     CARDS SCREEN
+  ══════════════════════════════ */
+  #cards-screen {
+    display: none; position: fixed; inset: 0; z-index: 40;
+    background: radial-gradient(ellipse at 50% 20%, #3d1230 0%, #1a0814 60%, #0d0510 100%);
+    overflow: hidden;
+  }
+
+  #confetti-canvas { position: fixed; inset: 0; pointer-events: none; z-index: 41; }
+
+  .float-sticker {
+    position: fixed; font-size: 22px; pointer-events: none; z-index: 42;
+    animation: stickerFloat 4s ease-in-out infinite alternate;
+  }
+  .fs1 { top: 10%; left: 5%; animation-delay: 0s; }
+  .fs2 { top: 20%; right: 5%; animation-delay: 1s; }
+  .fs3 { bottom: 15%; left: 8%; animation-delay: 2s; }
+  .fs4 { bottom: 20%; right: 6%; animation-delay: 0.5s; }
+  @keyframes stickerFloat {
+    0% { transform: translateY(0) rotate(-10deg); }
+    100% { transform: translateY(-14px) rotate(10deg); }
+  }
+
+  .cards-wrap {
+    position: relative; z-index: 43;
+    height: 100vh; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; padding: 20px;
+  }
+
+  /* Progress dots */
+  .progress-dots { display: flex; gap: 8px; margin-bottom: 20px; }
+  .prog-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: rgba(255,180,210,0.25);
+    transition: background 0.3s, transform 0.3s;
+  }
+  .prog-dot.active { background: var(--pink); transform: scale(1.35); }
+  .prog-dot.done { background: var(--lavender); }
+
+  /* Card */
+  .bday-card {
+    width: 100%; max-width: 310px;
+    background: white; border-radius: 28px;
+    padding: 0 0 24px;
+    text-align: center;
+    box-shadow: 0 16px 50px rgba(0,0,0,0.4), 0 4px 16px rgba(255,107,157,0.2);
+    animation: cardSlideIn 0.5s cubic-bezier(0.22,1.5,0.5,1);
+    overflow: hidden;
+  }
+  @keyframes cardSlideIn {
+    0% { transform: translateX(80px) scale(0.9); opacity: 0; }
+    100% { transform: translateX(0) scale(1); opacity: 1; }
+  }
+  @keyframes cardSlideOut {
+    0% { transform: translateX(0) scale(1); opacity: 1; }
+    100% { transform: translateX(-80px) scale(0.9); opacity: 0; }
+  }
+
+  /* Card top banner with avatar */
+  .card-banner {
+    width: 100%; height: 110px;
+    display: flex; align-items: flex-end; justify-content: center;
+    padding-bottom: 0; position: relative;
+  }
+
+  /* Avatar circle */
+  .avatar-ring {
+    width: 84px; height: 84px; border-radius: 50%;
+    border: 4px solid white;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    background: white;
+    display: flex; align-items: center; justify-content: center;
+    position: absolute; bottom: -34px; left: 50%;
+    transform: translateX(-50%);
+    z-index: 2; overflow: hidden;
+    font-size: 44px;
+  }
+
+  .card-body { padding: 44px 24px 0; }
+
+  .card-title {
+    font-family: 'Caveat', cursive;
+    font-size: 22px; font-weight: 700;
+    color: var(--pink); margin-bottom: 10px; line-height: 1.2;
+  }
+
+  .card-msg {
+    font-family: 'Caveat', cursive;
+    font-size: 17px; font-weight: 500;
+    color: #6a4a58; line-height: 1.7;
+  }
+  .card-msg .em { color: var(--pink); font-weight: 700; }
+
+  .card-btn-row { margin-top: 20px; display: flex; justify-content: center; }
+
+  .btn-next {
+    padding: 12px 30px;
+    background: linear-gradient(135deg, #ff6b9d, #c9b8ff);
+    border: none; border-radius: 50px; color: white;
+    font-family: 'Nunito', sans-serif; font-size: 15px; font-weight: 800;
+    cursor: pointer; box-shadow: 0 4px 16px rgba(255,107,157,0.35);
+    transition: transform 0.15s;
+  }
+  .btn-next:hover { transform: translateY(-2px); }
+  .btn-next:active { transform: scale(0.96); }
+
+  /* Final wrap card */
+  .final-card {
+    width: 100%; max-width: 310px;
+    background: white; border-radius: 28px;
+    padding: 32px 24px 28px; text-align: center;
+    box-shadow: 0 16px 50px rgba(0,0,0,0.4);
+    animation: cardSlideIn 0.5s cubic-bezier(0.22,1.5,0.5,1);
+    overflow: hidden;
+  }
+
+  .final-emoji { font-size: 52px; display: block; margin-bottom: 12px; animation: popIn 0.6s cubic-bezier(0.22,1.5,0.5,1); }
+  @keyframes popIn { 0% { transform: scale(0); } 100% { transform: scale(1); } }
+  .final-title { font-family:'Caveat',cursive; font-size:26px; font-weight:700; color:var(--pink); margin-bottom:12px; }
+  .final-msg { font-family:'Caveat',cursive; font-size:17px; color:#6a4a58; line-height:1.7; }
+  .final-msg .em { color: var(--pink); font-weight:700; }
+</style>
+</head>
+<body>
+
+<!-- ══ LANDING — ROMANTIC ══ -->
+<div id="landing-screen">
+  <div class="star-field" id="star-field"></div>
+
+  <!-- glow orbs -->
+  <div class="glow-orb" style="width:320px;height:320px;background:rgba(180,30,80,0.18);top:-80px;left:-80px;animation-duration:7s;"></div>
+  <div class="glow-orb" style="width:260px;height:260px;background:rgba(120,20,100,0.14);bottom:-60px;right:-60px;animation-duration:9s;animation-delay:3s;"></div>
+  <div class="glow-orb" style="width:180px;height:180px;background:rgba(200,50,100,0.1);top:40%;left:20%;animation-duration:6s;animation-delay:1.5s;"></div>
+
+  <div class="landing-content">
+    <span class="landing-icon">🌹</span>
+
+    <div class="landing-tag">✦ &nbsp; a birthday gift &nbsp; ✦</div>
+
+    <div class="deco-line">
+      <div class="deco-line-bar"></div>
+      <span>💕</span>
+      <div class="deco-line-bar"></div>
+    </div>
+
+    <span class="landing-for">this is for my love,</span>
+    <span class="landing-name">Trupti</span>
+    <div class="landing-subtitle">you are my favourite person in the whole world~</div>
+
+    <div class="open-btn-wrap">
+      <button class="open-btn" onclick="openPopup1()">
+        <span class="btn-icon">💌</span>
+        Open your gift
+      </button>
+    </div>
+
+    <div class="tap-hint">made with love, just for you</div>
+  </div>
+
+  <div class="landing-quote">"every day with you feels like a gift" 🌙</div>
+</div>
+
+<!-- ══ POPUP 1 — Do you love me? ══ -->
+<div class="modal-overlay" id="popup1">
+  <div class="modal-box">
+    <span class="modal-emoji">🥺</span>
+    <div class="modal-title">Do you love me?</div>
+    <div class="modal-sub">Answer honestly before you continue~</div>
+    <div class="btn-row">
+      <button class="btn-yes" onclick="clickedYes()">Yes 💖</button>
+      <button class="btn-no" id="btn-no" onclick="clickedNo()">No 🙄</button>
+    </div>
+    <div class="no-msg" id="no-msg">
+      😤 Wrong answer! Click <strong>Yes</strong> to continue...
+    </div>
+  </div>
+</div>
+
+<!-- ══ POPUP 2 — Say I love you ══ -->
+<div class="modal-overlay" id="popup2">
+  <div class="modal-box">
+    <span class="modal-emoji">💌</span>
+    <div class="modal-title">Prove it! 😏</div>
+    <div class="modal-sub">Type the magic words to open your gift~</div>
+    <input class="love-input" id="love-input" type="text" placeholder="type it here..." autocomplete="off" oninput="clearHint()">
+    <div class="love-hint" id="love-hint">hint: three little words 🤭</div>
+    <button class="btn-continue" onclick="checkLoveYou()">Open 💌</button>
+  </div>
+</div>
+
+<!-- ══ CARDS SCREEN ══ -->
+<div id="cards-screen">
+  <canvas id="confetti-canvas"></canvas>
+  <span class="float-sticker fs1">🌸</span>
+  <span class="float-sticker fs2">⭐</span>
+  <span class="float-sticker fs3">💖</span>
+  <span class="float-sticker fs4">🎀</span>
+  <div class="cards-wrap">
+    <div class="progress-dots" id="progress-dots"></div>
+    <div id="card-container"></div>
+  </div>
+</div>
+
+<script>
+  // ── Star field ──
+  const sf = document.getElementById('star-field');
+  for (let i = 0; i < 150; i++) {
+    const s = document.createElement('div');
+    s.className = 'star';
+    const sz = Math.random() * 2.5 + 0.4;
+    s.style.cssText = `width:${sz}px;height:${sz}px;top:${Math.random()*100}%;left:${Math.random()*100}%;animation-duration:${Math.random()*3+2}s;animation-delay:${Math.random()*6}s;`;
+    sf.appendChild(s);
+  }
+
+  // Floating rose petals
+  const petalEmojis = ['🌸','🌺','🌷','✨','💫','🍀'];
+  for (let i = 0; i < 16; i++) {
+    const p = document.createElement('div');
+    p.className = 'petal';
+    p.textContent = petalEmojis[Math.floor(Math.random()*petalEmojis.length)];
+    p.style.cssText = `left:${Math.random()*100}%;top:-40px;animation-duration:${Math.random()*9+8}s;animation-delay:${Math.random()*9}s;font-size:${Math.random()*10+10}px;`;
+    document.body.appendChild(p);
+  }
+
+  // ── Cards data ──
+  // 📸 HOW TO ADD PHOTOS:
+  // For each card below, replace the `photo: null` with the photo file name like:
+  //   photo: 'photo1.jpg'
+  // Then keep your photo files in the SAME folder as this HTML file.
+  // Example: photo: 'trupti1.jpg'
+  // The photo will fill the round avatar circle on the card automatically!
+
+  const cards = [
+    {
+      banner: 'linear-gradient(135deg, #ff6b9d, #ffcba4)',
+      photo: './images/trupti2.jpeg',           // 📸 replace null with: 'your-photo-1.jpg'
+      fallback: '🥳',
+      title: 'Happy Birthday, Trupti!',
+      msg: 'Today is <span class="em">your</span> day — the universe took its time making someone as <span class="em">special as you</span>, and honestly? Worth every second! 🎂',
+    },
+    {
+      banner: 'linear-gradient(135deg, #ffcba4, #ffe066)',
+      photo: "./images/trupti3.jpeg",           // 📸 replace null with: 'your-photo-2.jpg'
+      fallback: '🌸',
+      title: 'You make every day brighter',
+      msg: 'Even on my dullest days, just thinking about you puts a <span class="em">smile on my face</span>. You\'re my favourite kind of sunshine. ☀️',
+    },
+    {
+      banner: 'linear-gradient(135deg, #c9b8ff, #b8f0d8)',
+      photo: "./images/trupti6.jpeg",           // 📸 replace null with: 'your-photo-3.jpg'
+      fallback: '✨',
+      title: 'You have no idea...',
+      msg: '...how <span class="em">incredibly loved</span> you are. Not just by me, but by everyone lucky enough to have you in their life. 💜',
+    },
+    {
+      banner: 'linear-gradient(135deg, #ff9dc7, #c9b8ff)',
+      photo: "./images/trupti11.jpeg",           // 📸 replace null with: 'your-photo-4.jpg'
+      fallback: '🥹',
+      title: 'Thank you for being you',
+      msg: 'Your laugh, your care, your silly little habits — I wouldn\'t change a <span class="em">single thing</span>. You\'re <span class="em">perfect</span> just as you are. 💕',
+    },
+    {
+      banner: 'linear-gradient(135deg, #b8f0d8, #c9b8ff)',
+      photo: "./images/trupti7.jpeg",           // 📸 replace null with: 'your-photo-5.jpg'
+      fallback: '🌙',
+      title: 'My favourite wish',
+      msg: 'If I had one birthday wish of my own, it would simply be — <span class="em">more days with you</span>. That\'s it. That\'s the whole wish. 🌟',
+    },
+    {
+      banner: 'linear-gradient(135deg, #ff6b9d, #c9b8ff)',
+      photo: "./images/trupti1.jpeg",           // 📸 replace null with: 'your-photo-6.jpg'
+      fallback: '🎉',
+      title: 'Here\'s to you, Trupti!',
+      msg: 'May this birthday bring you all the <span class="em">joy, love & cake</span> your heart can hold. You deserve the whole world & more. <span class="em">Happy Birthday!</span> 🎂💖',
+    },
+    {
+      banner: 'linear-gradient(135deg, #ff6b9d, #ff9dc7)',
+      photo: "./images/trupti12.jpeg",           // 📸 replace null with: 'your-photo-7.jpg'
+      fallback: '🌹',
+      title: 'You are my home',
+      msg: 'No matter where I am, thinking of you makes me feel <span class="em">safe, warm & home</span>. You\'re the best part of every single day. 🏡💕',
+    },
+    {
+      banner: 'linear-gradient(135deg, #ffe066, #ffcba4)',
+      photo: "./images/trupti9.jpeg",           // 📸 replace null with: 'your-photo-8.jpg'
+      fallback: '🥰',
+      title: 'Lucky doesn\'t cover it',
+      msg: 'I don\'t know what I did to deserve someone like you, but I\'m <span class="em">grateful every single day</span>. You\'re my biggest blessing. 🍀✨',
+    },
+    {
+      banner: 'linear-gradient(135deg, #c9b8ff, #ff6b9d)',
+      photo: "./images/trupti5.jpeg",           // 📸 replace null with: 'your-photo-9.jpg'
+      fallback: '💫',
+      title: 'Forever & always 💖',
+      msg: 'On this special day and every day after — know that you are <span class="em">deeply, truly, endlessly loved</span>. Happy Birthday, my Trupti! 🎂🌹',
+    }
+  ];
+
+  let currentCard = 0;
+
+  // ── Popup 1 ──
+  function openPopup1() {
+    document.getElementById('popup1').style.display = 'flex';
+  }
+
+  function clickedNo() {
+    document.getElementById('no-msg').style.display = 'block';
+    const btn = document.getElementById('btn-no');
+    btn.textContent = 'Nope! 😤';
+    setTimeout(() => btn.textContent = 'No 🙄', 900);
+  }
+
+  function clickedYes() {
+    document.getElementById('popup1').style.display = 'none';
+    document.getElementById('no-msg').style.display = 'none';
+    setTimeout(() => {
+      document.getElementById('popup2').style.display = 'flex';
+      document.getElementById('love-input').focus();
+    }, 200);
+  }
+
+  // ── Popup 2 ──
+  function clearHint() {
+    const h = document.getElementById('love-hint');
+    h.textContent = 'hint: three little words 🤭';
+    h.classList.remove('err');
+    document.getElementById('love-input').style.borderColor = '#ffd6e7';
+  }
+
+  function checkLoveYou() {
+    const val = document.getElementById('love-input').value.trim().toLowerCase();
+    const hint = document.getElementById('love-hint');
+    const accepted = ['i love you','i love u','ilove you','i loveyou','i  love you'];
+    if (accepted.includes(val)) {
+      document.getElementById('popup2').style.display = 'none';
+      const ls = document.getElementById('landing-screen');
+      ls.style.opacity = '0';
+      ls.style.transform = 'scale(1.04)';
+      setTimeout(() => {
+        ls.style.display = 'none';
+        showCards();
+      }, 450);
+    } else {
+      hint.textContent = '❌ Hmm, not quite! Try: "i love you" 💕';
+      hint.classList.add('err');
+      document.getElementById('love-input').style.borderColor = '#ff4d7a';
+      setTimeout(() => {
+        document.getElementById('love-input').style.borderColor = '#ffd6e7';
+      }, 700);
+    }
+  }
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Enter' && document.getElementById('popup2').style.display === 'flex') checkLoveYou();
+  });
+
+  // ── Cards ──
+  function showCards() {
+    document.getElementById('cards-screen').style.display = 'block';
+    buildDots();
+    renderCard(0);
+    launchConfetti();
+  }
+
+  function buildDots() {
+    const wrap = document.getElementById('progress-dots');
+    wrap.innerHTML = '';
+    cards.forEach((_, i) => {
+      const d = document.createElement('div');
+      d.className = 'prog-dot'; d.id = 'dot-' + i;
+      wrap.appendChild(d);
+    });
+    document.getElementById('dot-0').classList.add('active');
+  }
+
+  function renderCard(index) {
+    const c = cards[index];
+    const container = document.getElementById('card-container');
+    document.querySelectorAll('.prog-dot').forEach((d, i) => {
+      d.classList.remove('active','done');
+      if (i < index) d.classList.add('done');
+      if (i === index) d.classList.add('active');
+    });
+
+    // Photo or fallback emoji
+    const avatarContent = c.photo
+      ? `<img src="${c.photo}" alt="Trupti" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">`
+      : c.fallback;
+
+    const isLast = index === cards.length - 1;
+    container.innerHTML = `
+      <div class="bday-card">
+        <div class="card-banner" style="background:${c.banner}">
+          <div class="avatar-ring">${avatarContent}</div>
+        </div>
+        <div class="card-body">
+          <div class="card-title">${c.title}</div>
+          <div class="card-msg">${c.msg}</div>
+          <div class="card-btn-row">
+            ${isLast
+              ? `<button class="btn-next" onclick="finishCards()">🎉 That's a wrap!</button>`
+              : `<button class="btn-next" onclick="nextCard()">Next →</button>`}
+          </div>
+        </div>
+      </div>`;
+  }
+
+  function nextCard() {
+    const card = document.querySelector('.bday-card');
+    card.style.animation = 'cardSlideOut 0.3s ease forwards';
+    setTimeout(() => { currentCard++; renderCard(currentCard); }, 280);
+  }
+
+  function finishCards() {
+    document.getElementById('card-container').innerHTML = `
+      <div class="final-card">
+        <span class="final-emoji">🎊</span>
+        <div class="final-title">That's all, Trupti! 💖</div>
+        <div class="final-msg">
+          Hope this made you smile as much as you make me smile every single day.<br><br>
+          <span class="em">Happy Birthday, my love! 🎂</span>
+        </div>
+      </div>`;
+    document.querySelectorAll('.prog-dot').forEach(d => {
+      d.classList.remove('active'); d.classList.add('done');
+    });
+  }
+
+  // ── Confetti ──
+  function launchConfetti() {
+    const canvas = document.getElementById('confetti-canvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    const colors = ['#ff6b9d','#c9b8ff','#ffcba4','#ffe066','#b8f0d8','#ffb3cc','#ff9dc7'];
+    const pieces = Array.from({length:110}, () => ({
+      x: Math.random() * canvas.width,
+      y: Math.random() * -canvas.height,
+      w: Math.random() * 10 + 5, h: Math.random() * 6 + 4,
+      color: colors[Math.floor(Math.random()*colors.length)],
+      rotation: Math.random()*360, rotSpeed: (Math.random()-0.5)*5,
+      speedY: Math.random()*2.5+1.2, speedX: (Math.random()-0.5)*1.5,
+      circle: Math.random() > 0.5
+    }));
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      pieces.forEach(p => {
+        ctx.save(); ctx.globalAlpha = 0.85; ctx.fillStyle = p.color;
+        ctx.translate(p.x, p.y); ctx.rotate(p.rotation*Math.PI/180);
+        if (p.circle) { ctx.beginPath(); ctx.arc(0,0,p.w/2,0,Math.PI*2); ctx.fill(); }
+        else { ctx.fillRect(-p.w/2,-p.h/2,p.w,p.h); }
+        ctx.restore();
+        p.y+=p.speedY; p.x+=p.speedX; p.rotation+=p.rotSpeed;
+        if (p.y > canvas.height+20) { p.y=-20; p.x=Math.random()*canvas.width; }
+      });
+      requestAnimationFrame(animate);
+    }
+    animate();
+    window.addEventListener('resize', () => { canvas.width=window.innerWidth; canvas.height=window.innerHeight; });
+  }
+</script>
+</body>
+</html>
