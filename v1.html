@@ -325,11 +325,11 @@
 
   /* Card */
   .bday-card {
-    width: 100%; max-width: 360px;
+    width: 100%; max-width: 310px;
     background: white; border-radius: 28px;
-    padding: 0 0 28px;
+    padding: 0 0 24px;
     text-align: center;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.45), 0 4px 16px rgba(255,107,157,0.2);
+    box-shadow: 0 16px 50px rgba(0,0,0,0.4), 0 4px 16px rgba(255,107,157,0.2);
     animation: cardSlideIn 0.5s cubic-bezier(0.22,1.5,0.5,1);
     overflow: hidden;
   }
@@ -341,77 +341,46 @@
     0% { transform: translateX(0) scale(1); opacity: 1; }
     100% { transform: translateX(-80px) scale(0.9); opacity: 0; }
   }
-  @keyframes cardSlideOutRight {
-    0% { transform: translateX(0) scale(1); opacity: 1; }
-    100% { transform: translateX(80px) scale(0.9); opacity: 0; }
-  }
 
-  /* Card top banner */
+  /* Card top banner with avatar */
   .card-banner {
-    width: 100%; height: 160px;
-    display: flex; align-items: center; justify-content: center;
-    position: relative; overflow: hidden;
+    width: 100%; height: 110px;
+    display: flex; align-items: flex-end; justify-content: center;
+    padding-bottom: 0; position: relative;
   }
 
-  /* decorative dots on banner */
-  .card-banner::before {
-    content: '';
-    position: absolute; inset: 0;
-    background-image: radial-gradient(circle, rgba(255,255,255,0.18) 1px, transparent 1px);
-    background-size: 18px 18px;
-  }
-
-  /* card number label on banner */
-  .card-banner::after {
-    content: attr(data-num);
-    position: absolute; top: 12px; right: 16px;
-    font-family: 'Nunito', sans-serif;
-    font-size: 11px; font-weight: 800;
-    letter-spacing: 2px; text-transform: uppercase;
-    color: rgba(255,255,255,0.5);
-  }
-
-  /* Avatar circle — centered in banner */
+  /* Avatar circle */
   .avatar-ring {
-    width: 120px; height: 120px; border-radius: 50%;
-    border: 5px solid rgba(255,255,255,0.9);
-    box-shadow: 0 8px 28px rgba(0,0,0,0.25);
+    width: 84px; height: 84px; border-radius: 50%;
+    border: 4px solid white;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
     background: white;
     display: flex; align-items: center; justify-content: center;
-    overflow: hidden;
-    font-size: 62px;
-    position: relative; z-index: 2;
-    animation: avatarPop 0.5s cubic-bezier(0.22,1.5,0.5,1) both;
-  }
-  @keyframes avatarPop {
-    0% { transform: scale(0.6); opacity: 0; }
-    100% { transform: scale(1); opacity: 1; }
+    position: absolute; bottom: -34px; left: 50%;
+    transform: translateX(-50%);
+    z-index: 2; overflow: hidden;
+    font-size: 44px;
   }
 
-  .avatar-ring img {
-    width: 100%; height: 100%;
-    object-fit: cover; border-radius: 50%;
-  }
-
-  .card-body { padding: 18px 24px 0; }
+  .card-body { padding: 44px 24px 0; }
 
   .card-title {
     font-family: 'Caveat', cursive;
-    font-size: 26px; font-weight: 700;
+    font-size: 22px; font-weight: 700;
     color: var(--pink); margin-bottom: 10px; line-height: 1.2;
   }
 
   .card-msg {
     font-family: 'Caveat', cursive;
-    font-size: 19px; font-weight: 500;
-    color: #6a4a58; line-height: 1.75;
+    font-size: 17px; font-weight: 500;
+    color: #6a4a58; line-height: 1.7;
   }
   .card-msg .em { color: var(--pink); font-weight: 700; }
 
-  .card-btn-row { margin-top: 20px; display: flex; justify-content: center; gap: 12px; }
+  .card-btn-row { margin-top: 20px; display: flex; justify-content: center; }
 
   .btn-next {
-    padding: 13px 24px;
+    padding: 12px 30px;
     background: linear-gradient(135deg, #ff6b9d, #c9b8ff);
     border: none; border-radius: 50px; color: white;
     font-family: 'Nunito', sans-serif; font-size: 15px; font-weight: 800;
@@ -421,23 +390,11 @@
   .btn-next:hover { transform: translateY(-2px); }
   .btn-next:active { transform: scale(0.96); }
 
-  .btn-prev {
-    padding: 13px 24px;
-    background: transparent;
-    border: 2px solid #ffd6e7;
-    border-radius: 50px; color: var(--pink);
-    font-family: 'Nunito', sans-serif; font-size: 15px; font-weight: 800;
-    cursor: pointer;
-    transition: transform 0.15s, background 0.15s;
-  }
-  .btn-prev:hover { background: #fff0f5; transform: translateY(-2px); }
-  .btn-prev:active { transform: scale(0.96); }
-
   /* Final wrap card */
   .final-card {
-    width: 100%; max-width: 360px;
+    width: 100%; max-width: 310px;
     background: white; border-radius: 28px;
-    padding: 36px 28px 32px; text-align: center;
+    padding: 32px 24px 28px; text-align: center;
     box-shadow: 0 16px 50px rgba(0,0,0,0.4);
     animation: cardSlideIn 0.5s cubic-bezier(0.22,1.5,0.5,1);
     overflow: hidden;
@@ -556,7 +513,8 @@
   // For each card below, replace the `photo: null` with the photo file name like:
   //   photo: 'photo1.jpg'
   // Then keep your photo files in the SAME folder as this HTML file.
-  // The photo will fill the entire top half of the card (full cover style)!
+  // Example: photo: 'trupti1.jpg'
+  // The photo will fill the round avatar circle on the card automatically!
 
   const cards = [
     {
@@ -710,27 +668,23 @@
       if (i === index) d.classList.add('active');
     });
 
-    const isLast = index === cards.length - 1;
-    const isFirst = index === 0;
-
+    // Photo or fallback emoji
     const avatarContent = c.photo
-      ? `<img src="${c.photo}" alt="Trupti">`
+      ? `<img src="${c.photo}" alt="Trupti" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">`
       : c.fallback;
 
+    const isLast = index === cards.length - 1;
     container.innerHTML = `
       <div class="bday-card">
-        <div class="card-banner" style="background:${c.banner}" data-num="${index+1} / ${cards.length}">
+        <div class="card-banner" style="background:${c.banner}">
           <div class="avatar-ring">${avatarContent}</div>
         </div>
         <div class="card-body">
           <div class="card-title">${c.title}</div>
           <div class="card-msg">${c.msg}</div>
           <div class="card-btn-row">
-            ${!isFirst
-              ? `<button class="btn-prev" onclick="prevCard()">← Prev</button>`
-              : `<div></div>`}
             ${isLast
-              ? `<button class="btn-next" onclick="finishCards()">🎉 Wrap!</button>`
+              ? `<button class="btn-next" onclick="finishCards()">🎉 That's a wrap!</button>`
               : `<button class="btn-next" onclick="nextCard()">Next →</button>`}
           </div>
         </div>
@@ -741,12 +695,6 @@
     const card = document.querySelector('.bday-card');
     card.style.animation = 'cardSlideOut 0.3s ease forwards';
     setTimeout(() => { currentCard++; renderCard(currentCard); }, 280);
-  }
-
-  function prevCard() {
-    const card = document.querySelector('.bday-card');
-    card.style.animation = 'cardSlideOutRight 0.3s ease forwards';
-    setTimeout(() => { currentCard--; renderCard(currentCard); }, 280);
   }
 
   function finishCards() {
